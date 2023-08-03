@@ -27,6 +27,9 @@ export default {
         console.log(this.items)
     },
 }
+
+//todo: reverse, postID
+
 </script>
 
 <style lang="scss" scoped>

@@ -39,5 +39,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  env: {
+    fbApiKey: 'AIzaSyD2o8EXECjdJFK2BRb8RQzgxNqDEnCCeIw',
+  },
 }

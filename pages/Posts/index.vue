@@ -16,8 +16,8 @@ export default {
             items: []
         }
     },
-    async asyncData ({ $axios, params }) {
-        const data = await $axios.$get('https://fir-login-d212d-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json');
+    async asyncData ({ $api, params }) {
+        const data = await $api.$get('/posts.json');
         const items = [];
         for (const key in data) {
             const item = data[key];

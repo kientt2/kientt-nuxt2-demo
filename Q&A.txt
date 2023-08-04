@@ -13,3 +13,5 @@ ANSWERS
 (https://v2.nuxt.com/docs/directory-structure/plugins/)
 
 - firebase postID -> phai day ID vao trong object do cau truc cua firebase.
+
+- $api - extending $axios (https://axios.nuxtjs.org/extend)

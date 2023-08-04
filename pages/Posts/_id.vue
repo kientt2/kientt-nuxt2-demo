@@ -11,13 +11,13 @@ export default {
             post: {}
         }
     },
-    async asyncData ({ $axios, params }) {
+    async asyncData ({ $api, params }) {
         if (!params?.id){
             //alert('Error! no product id found!')
             return;
         }
         const id = params.id;
-        const post = await $axios.$get(`https://fir-login-d212d-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${id}.json`);
+        const post = await $api.$get(`/posts/${id}.json`);
         return {post}
     },
 }

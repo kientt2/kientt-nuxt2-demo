@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     layout: 'custom',
     data() {
@@ -29,8 +30,8 @@ export default {
 
             //call API - firebase auth REST API
             const payload = {
-                email: this.email,
-                password: this.password,
+                email: this.email, //'admin@gmail.com',
+                password: this.password, //'123456',
                 returnSecureToken: true
             }
 
@@ -38,6 +39,7 @@ export default {
             const API_AUTH = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${process.env.fbApiKey}`
             //alert(API_AUTH);
             //this.$axios.$post(API_AUTH, payload).then(result => console.log(result)).catch(err => console.log(err));
+            axios.post(API_AUTH, payload).then(result => console.log(result)).catch(err => console.log(err));
         }
     },
 }

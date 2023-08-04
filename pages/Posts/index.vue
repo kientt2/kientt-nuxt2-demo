@@ -24,7 +24,7 @@ export default {
         for (const key in data) {
             console.log(data[key], key)
             const item = data[key];
-            item.url = `/Post/${key}`  ;
+            item.url = `/Posts/${key}`  ;
             items.push(item);
         }
         return {items};

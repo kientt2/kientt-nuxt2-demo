@@ -7,8 +7,8 @@
             <div class="menu">
                 <ul>
                     <li><nuxt-link to="/">Home</nuxt-link></li>
-                    <li><nuxt-link to="/Listing">Listing</nuxt-link></li>
-                    <li><nuxt-link to="/Post">Post</nuxt-link></li>
+                    <li><nuxt-link to="/Posts">Posts</nuxt-link></li>
+                    <li><nuxt-link to="/CreatePost">New Post</nuxt-link></li>
                     <li><nuxt-link to="/About">About</nuxt-link></li>
                     <li><nuxt-link to="/Profile">Profile</nuxt-link></li>
                     <li><nuxt-link to="/register">Register</nuxt-link></li>

@@ -1,11 +1,10 @@
 <template>
     <section>
-        <h1>Register</h1>
+        <h1>Login</h1>
         <form @submit.prevent="onSubmit">
             <div>Email <input v-model="email" placeholder="admin@gmail.com" type="text"/></div>
-            <div>Password <input v-model="password" placeholder="password" type="text"/></div>
-            <div>Re-password <input v-model="rePassword" placeholder="re-password" type="text"/></div>
-            <button type="submit">register</button>
+            <div>Password <input v-model="password" placeholder="123456" type="text"/></div>
+            <button type="submit">login</button>
         </form>
     </section>
 </template>
@@ -16,15 +15,15 @@ export default {
     layout: 'custom',
     data() {
         return {
-            email: '',
-            password: '',
+            email: 'admin@gmail.com',
+            password: '123456',
             rePassword: ''
         }
     },
     methods: {
         onSubmit() {
-            if (this.password !== this.rePassword) {
-                alert('Hay nhap password dung');
+            if (this.email === '' || this.Password === '') {
+                alert('Hay nhap email, pw');
                 return false
             }
 
@@ -35,9 +34,7 @@ export default {
                 returnSecureToken: true
             }
 
-            //const PROJECT_ID = "fir-login-d212d";
-            //const API_AUTH = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${process.env.fbApiKey}`
-            const API_AUTH = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbApiKey}`
+            const API_AUTH = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.fbApiKey}`
             this.$axios.$post(API_AUTH, payload).then(result => console.log(result)).catch(err => alert('Catch Error ' + JSON.stringify(err)));
             // axios.post(API_AUTH, payload).then(result => console.log(result)).catch(err => alert('Catch Error ' + JSON.stringify(err)));
         }

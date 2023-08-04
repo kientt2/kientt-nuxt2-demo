@@ -26,11 +26,16 @@
 
 
 <style lang="css">
+html {
+    font-family: DM Sans,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    line-height: 1.5
+}
+
 header {
     display: flex;
     justify-content: space-between;
     padding-bottom: 5px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #e2e8f0;
 }
 header .menu ul {
     display: flex;
@@ -50,4 +55,13 @@ footer{
 .menu a.nuxt-link-exact-active {
     color: red;
 }
+
+.shadow {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.border-transparent {
+    border-color: transparent;
+}
+
 </style>

@@ -47,4 +47,7 @@ footer{
     bottom: 0;
 
 }
+.menu a.nuxt-link-exact-active {
+    color: red;
+}
 </style>

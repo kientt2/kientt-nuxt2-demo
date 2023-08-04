@@ -10,19 +10,16 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
     data() {
         return {
             items: []
         }
     },
-    async asyncData({ $http }) {
-        const result = await axios.get('https://fir-login-d212d-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json');
+    async asyncData ({ $axios, params }) {
+        const data = await $axios.$get('https://fir-login-d212d-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json');
         const items = [];
-        const data = JSON.parse(JSON.stringify(result.data));
         for (const key in data) {
-            console.log(data[key], key)
             const item = data[key];
             item.url = `/Posts/${key}`  ;
             items.push(item);

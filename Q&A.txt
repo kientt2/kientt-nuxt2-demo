@@ -1,0 +1,15 @@
+Q
+- {params, route}?
+- $http la gi?
+- $axios base url?
+
+
+
+ANSWERS
+- $get la gi? -> shortcut của $axios.get -> trả về luôn result.data
+(https://axios.nuxtjs.org/usage/#-shortcuts)
+
+- $axios la gi? -> plugin
+(https://v2.nuxt.com/docs/directory-structure/plugins/)
+
+- firebase postID -> phai day ID vao trong object do cau truc cua firebase.

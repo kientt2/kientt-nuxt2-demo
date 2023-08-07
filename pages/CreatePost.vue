@@ -70,6 +70,7 @@ export default {
 //     "refreshToken": "AMf-vBw4PtKPGkmtKpImiOLqnfkPknyr7eHQX22uPmTJdgnUzQFQX4AVaHsVgETfICAoa5CXBL_psTITg3hTmdEYgdPNnl-E8nPPu7maVR0hAEqD1p0JswTL17fjyJPczFd9NTOvBx__VJJnyToheHiBz0hCLNZYnmAwsjSnD594F2Fh8RyfJdhYqMZ50AcwXeW9cXi2AekyrVv2Y_vwTx8UqDAcMdo9gw",
 //     "expiresIn": "3600"
 // }
+//todo: - check token het han thi quay sang trang login.
 </script>
 
 <style lang="scss" scoped></style>

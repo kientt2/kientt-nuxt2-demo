@@ -2,16 +2,16 @@
     <div>
         <header>
             <div class="logo">
-                Header
+                <nuxt-link to="/">Logo</nuxt-link>
             </div>
             <div class="menu">
                 <ul>
                     <li><nuxt-link to="/">Home</nuxt-link></li>
                     <li><nuxt-link to="/Posts">Posts</nuxt-link></li>
                     <li><nuxt-link to="/CreatePost">New Post</nuxt-link></li>
-                    <li><nuxt-link to="/About">About</nuxt-link></li>
                     <li><nuxt-link to="/Profile">Profile</nuxt-link></li>
                     <li><nuxt-link to="/register">Register</nuxt-link></li>
+                    <li><nuxt-link to="/login">Login</nuxt-link></li>
                 </ul>
             </div>
         </header>

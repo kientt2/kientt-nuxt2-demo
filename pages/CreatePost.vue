@@ -20,6 +20,7 @@
 
 <script>
 export default {
+    middleware: ['auth'],
     data() {
         return {
             title: '',
@@ -34,9 +35,9 @@ export default {
                 alert('Validation failed! Please input title and content');
                 return false;
             }
-            const auth = {
+            const option = {
                 params: {
-                    auth: "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYyM2YzNmM4MTZlZTNkZWQ2YzU0NTkyZTM4ZGFlZjcyZjE1YTBmMTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZmlyLWxvZ2luLWQyMTJkIiwiYXVkIjoiZmlyLWxvZ2luLWQyMTJkIiwiYXV0aF90aW1lIjoxNjkxMzkyODAwLCJ1c2VyX2lkIjoiQndscGUyTURLcWIzQXJ3Z1hPMzFFUG11NEZKMiIsInN1YiI6IkJ3bHBlMk1ES3FiM0Fyd2dYTzMxRVBtdTRGSjIiLCJpYXQiOjE2OTEzOTI4MDAsImV4cCI6MTY5MTM5NjQwMCwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiYWRtaW5AZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.OjEIakbbvp94hxaU75ZC8dkEcDZH5_lR23FFDdtV5GGBBZjMD6GPcOZJl56uTa_xihtVaN1fnUrwRjLVIraD5RRTbd4nfpnj0qMKY6hfatHrn-T6QYV2jpYqaJbjVb3kPjYZkCZfX-9OJmFBSAIJKPhosxuGj67bZ5d5IpmwLUZN7qCXIrkf0UzGqWq0FT9dwWp0UHFbtkgnjZAsDVLTuRzrzVuQ9Uqb1ftHpfRylCgmhfF58mJl4lNqrEjbZh8FyljxIaQjajGO3m7eJSPxHl68NxmAv5MP1zzGp2LjH8R1RgQ0ZXPtd3Mk7U2s_IXkOyhwxAN7uCToGqfRoOBCow"
+                    auth: this.$store.getters.getAuth,
                 }
             }
             const API_POST = `posts.json`;
@@ -48,7 +49,7 @@ export default {
                 title: this.title,
                 content: this.content,
             }
-            this.$api.$post(API_POST, payload, auth);
+            this.$api.$post(API_POST, payload, option);
             // const result = await fetch(API_POST, {
             //     method: 'POST',
             //     body: JSON.stringify(payload),
@@ -57,6 +58,9 @@ export default {
             //     console.log('success: ', x);
             // });
         },
+    },
+    created() {
+        //console.log(this.$store.getters.getAuth)
     },
 }
 

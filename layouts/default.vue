@@ -11,7 +11,8 @@
                     <li><nuxt-link to="/CreatePost">New Post</nuxt-link></li>
                     <li><nuxt-link to="/Profile">Profile</nuxt-link></li>
                     <li><nuxt-link to="/register">Register</nuxt-link></li>
-                    <li><nuxt-link to="/login">Login</nuxt-link></li>
+                    <li v-if="!isLoggedin"><nuxt-link to="/login">Login</nuxt-link></li>
+                    <li v-else><nuxt-link to="/logout">Logout</nuxt-link></li>
                 </ul>
             </div>
         </header>
@@ -20,7 +21,12 @@
     </div>
 </template>
 
-<script setup>
+<script >
+import {mapState} from "vuex";
+
+export default {
+    computed: mapState(['isLoggedin']),
+}
 
 </script>
 

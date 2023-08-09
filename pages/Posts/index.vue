@@ -11,12 +11,18 @@
 
 <script>
 export default {
+    middleware: 'auth',
     data() {
         return {
             items: []
         }
     },
-    async asyncData ({ $api, params }) {
+    created() {
+        this.$store.commit('increment')
+        //console.log('Post List: ', this.$store.state.count)
+    },
+    async asyncData (context) {
+        const { $api, params, store } = context;
         const data = await $api.$get('/posts.json');
         const items = [];
         for (const key in data) {
@@ -24,6 +30,8 @@ export default {
             item.url = `/Posts/${key}`  ;
             items.push(item);
         }
+        // console.log($api,context, store)
+        // await  store.dispatch('nuxtServerInit', items);
         return {items};
     },
     // async fetch() {

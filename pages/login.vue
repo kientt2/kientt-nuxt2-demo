@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios';
+import Cookies from "js-cookie";
 export default {
     layout: 'custom',
     data() {
@@ -21,8 +22,9 @@ export default {
         }
     },
     methods: {
-        onSubmit() {
-            if (this.email === '' || this.Password === '') {
+        async onSubmit(context) {
+            const {store} = context;
+            if (this.email === '' || this.password === '') {
                 alert('Hay nhap email, pw');
                 return false
             }
@@ -35,9 +37,21 @@ export default {
             }
 
             const API_AUTH = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.fbApiKey}`
-            this.$axios.$post(API_AUTH, payload).then(result => console.log(result)).catch(err => alert('Catch Error ' + JSON.stringify(err)));
-            // axios.post(API_AUTH, payload).then(result => console.log(result)).catch(err => alert('Catch Error ' + JSON.stringify(err)));
+            try {
+                const result = await this.$axios.$post(API_AUTH, payload);
+                const {idToken} = result;
+                Cookies.set('idToken', idToken);
+                this.$store.commit('setLoggedIn')
+                alert('success');
+                this.$router.push('/');
+            } catch (e) {
+                alert('Catch Error ' + JSON.stringify(e))
+                console.log('Catch Error ',(e))
+            }
         }
+    },
+    created() {
+        //console.log(Cookies.get('idToken'))
     },
 }
 

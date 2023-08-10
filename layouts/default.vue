@@ -29,7 +29,8 @@ export default {
     computed: {
         isLoggedin() {
             return this.$store.state.isLoggedin
-        }
+        },
+        //...mapState(['isLoggedin']),
     },
     created() {
         // check auth function

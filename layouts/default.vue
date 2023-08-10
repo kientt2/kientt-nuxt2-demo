@@ -23,9 +23,20 @@
 
 <script >
 import {mapState} from "vuex";
+import Cookies from "js-cookie";
 
 export default {
-    computed: mapState(['isLoggedin']),
+    computed: {
+        isLoggedin() {
+            return this.$store.state.isLoggedin
+        }
+    },
+    created() {
+        // check auth function
+        if (Cookies.get('idToken')) {
+            this.$store.commit('setLoggedIn');
+        }
+    }
 }
 
 </script>

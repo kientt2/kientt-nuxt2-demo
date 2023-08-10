@@ -19,7 +19,9 @@ export default {
             step: 5,
         }
     },
-    created() {},
+    created() {
+        console.log(this.$store.state)
+    },
     methods: {
         handleIncrease() {
             this.$store.commit('increment', this.step);

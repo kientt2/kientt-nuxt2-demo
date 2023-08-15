@@ -9,6 +9,10 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+    name: 'IndexPage',
+    middleware (ctx) {
+        //console.log('middleware ctx $gtm', ctx.$gtm)
+        ctx.$gtm.push({ event: 'ssr' })
+    }
 }
 </script>

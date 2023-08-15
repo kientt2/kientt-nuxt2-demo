@@ -25,6 +25,7 @@ export default {
   plugins: [
     '~/plugins/axios.js',
     '~/plugins/api.js',
+    '~/plugins/gtm.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,7 +40,24 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/gtm',
   ],
+
+    gtm: {
+        id: process.env.GOOGLE_TAG_MANAGER_ID || 'G-15N2JMDRZV',
+        scriptDefer: true,
+        pageTracking: true,
+        // layer: 'test',
+        variables: {
+            test: '1'
+        }
+    },
+
+    publicRuntimeConfig: {
+    gtm: {
+      id: 'G-15N2JMDRZV&runtime'
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -47,5 +65,6 @@ export default {
 
   env: {
     fbApiKey: 'AIzaSyD2o8EXECjdJFK2BRb8RQzgxNqDEnCCeIw',
+    GOOGLE_TAG_MANAGER_ID: 'G-15N2JMDRZV',
   },
 }

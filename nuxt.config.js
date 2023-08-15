@@ -43,19 +43,21 @@ export default {
     '@nuxtjs/gtm',
   ],
 
-    gtm: {
-        id: process.env.GOOGLE_TAG_MANAGER_ID || 'G-15N2JMDRZV',
-        scriptDefer: true,
-        pageTracking: true,
-        // layer: 'test',
-        variables: {
-            test: '1'
-        }
-    },
+  gtm: {
+    debug: true,
+    layer: 'dataLayer',
+    id: process.env.GOOGLE_TAG_MANAGER_ID || 'GTM-MPN8HTSK',
+    scriptDefer: true,
+    pageTracking: true,
+    // layer: 'test',
+    variables: {
+      test: '1'
+    }
+  },
 
-    publicRuntimeConfig: {
+  publicRuntimeConfig: {
     gtm: {
-      id: 'G-15N2JMDRZV&runtime'
+      id: 'GTM-MPN8HTSK&runtime'
     }
   },
 
@@ -65,6 +67,6 @@ export default {
 
   env: {
     fbApiKey: 'AIzaSyD2o8EXECjdJFK2BRb8RQzgxNqDEnCCeIw',
-    GOOGLE_TAG_MANAGER_ID: 'G-15N2JMDRZV',
+    GOOGLE_TAG_MANAGER_ID: 'GTM-MPN8HTSK',
   },
 }
